@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html 
+	PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="../main/css/common.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../main/css/screen.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="css/tt_news.css" type="text/css" media="screen" />
+
+		<!--[if IE 7]> 
+			<link rel="stylesheet" href="../main/css/screen_ie7.css" type="text/css" media="screen" />
+		<![endif]-->
+
+		<!--[if lte IE 6]>
+			<link rel="stylesheet" href="../main/css/screen_ie6.css" type="text/css" media="screen" />
+		<![endif]-->
+		
+		<script src="../main/scripts/mootools-1.2.1-all-yc.js" type="text/javascript"></script>
+		
+		<title>Webteam Default Template</title>
+	</head>
+	<body>
+	
+		<div id="wrap">
+		
+			<div id="header">
+				header
+			</div>
+			
+			<div class="colmask equal px210x750">
+				<div class="col1">
+					<div class="content">
+						col1: cols_px_210_750
+					</div>
+				</div>
+				<div class="col2">
+					<div class="content">
+					
+<h2>TEMPLATE_LATEST</h2>					
+<!-- ###TEMPLATE_LATEST### begin
+	This is the template for the latest news, typically displayed on a frontpage 
+-->
+<div class="news-latest-container">
+	<!-- ###CONTENT### begin
+		  This is the part of the template substituted with the list of news: 
+	-->
+		<!-- ###NEWS### begin 
+			Template for a single item 
+		-->
+	<div class="news-latest-item">
+		<span class="news-latest-date"><!--###LINK_ITEM###-->###NEWS_DATE### ###NEWS_TIME###<!--###LINK_ITEM###--></span>
+		<h3><!--###LINK_ITEM###-->###NEWS_TITLE###<!--###LINK_ITEM###--></h3>
+		
+		<!--###LINK_ITEM###-->###NEWS_IMAGE###<!--###LINK_ITEM###-->
+		<div class="news-latest-text">
+			###NEWS_SUBHEADER###
+			###CATWRAP_B### ###TEXT_CAT_LATEST### ###NEWS_CATEGORY### ###NEWS_CATEGORY_IMAGE### ###CATWRAP_E### 
+		</div>
+		<div class="news-latest-morelink"><!--###LINK_ITEM###-->###MORE###<!--###LINK_ITEM###--></div>
+		<br style="clear: both;" />
+	</div>
+		<!-- ###NEWS### end-->		
+	<!-- ###CONTENT###  end -->
+	<div class="news-latest-gotoarchive"><!--###LINK_ARCHIVE###-->###GOTOARCHIVE###<!--###LINK_ARCHIVE###--></div>
+</div>
+<!-- ###TEMPLATE_LATEST### end -->
+
+<h2>TEMPLATE_LIST</h2>
+<!-- ###TEMPLATE_LIST### begin
+	This is the template for the list of news in the archive or news page or search
+-->
+<div class="news-list-container">
+###NEWS_CATEGORY_ROOTLINE###
+	<!-- ###CONTENT### begin
+		  This is the part of the template substituted with the list of news: 
+	-->
+		<!-- ###NEWS### begin
+			Template for a single item 
+		-->
+	<div class="news-list-item">				
+		<span class="news-list-date">###NEWS_DATE###</span>
+		<h3><!--###LINK_ITEM###-->###NEWS_TITLE###<!--###LINK_ITEM###--></h3>
+		
+		<!--###LINK_ITEM###-->###NEWS_IMAGE###<!--###LINK_ITEM###-->
+		
+		<div class="news-list-text">
+			###NEWS_SUBHEADER###
+			###CATWRAP_B### ###TEXT_CAT### ###NEWS_CATEGORY### ###NEWS_CATEGORY_IMAGE### ###CATWRAP_E###
+		</div>
+		<div class="news-list-morelink"><!--###LINK_ITEM###-->###MORE###<!--###LINK_ITEM###--></div>
+		<br style="clear: both;" />
+	</div>
+
+		<!-- ###NEWS### end-->
+	<!-- ###CONTENT###  end -->
+	<div class="news-list-browse">###BROWSE_LINKS###</div>
+</div>
+<!-- ###TEMPLATE_LIST### end -->
+
+<h2>TEMPLATE_SINGLE</h2>
+<!-- ###TEMPLATE_SINGLE### begin
+	This subpart is used to display single news items
+-->
+
+<div class="news-single-item">
+	###NEWS_CATEGORY_ROOTLINE###
+	<div class="news-single-timedata">###NEWS_DATE### ###NEWS_TIME### ###TEXT_NEWS_AGE### ###NEWS_AGE###</div>
+	<div class="news-single-author">###NEWS_AUTHOR###</div>
+	<h2>###NEWS_TITLE###</h2>
+	<div class="news-single-text">
+		###CATWRAP_B### ###TEXT_CAT### ###NEWS_CATEGORY### ###NEWS_CATEGORY_IMAGE### ###CATWRAP_E###
+		###NEWS_SUBHEADER###
+		###NEWS_IMAGE### 
+		###NEWS_CONTENT###
+		
+		###ADDINFO_WRAP_B###
+		###TEXT_RELATED###
+		###NEWS_RELATED###
+		
+		###TEXT_FILES###
+		###FILE_LINK###				  
+			
+		###TEXT_LINKS###
+		###NEWS_LINKS###
+		
+		###TEXT_RELATEDBYCATEGORY###
+		###NEWS_RELATEDBYCATEGORY###
+
+		###ADDINFO_WRAP_E###
+		###NEWS_SINGLE_PAGEBROWSER###
+	</div>
+	<br style="clear: both;" />
+	<div class="news-single-backlink">	
+	<!--###LINK_ITEM###-->###BACK_TO_LIST###<!--###LINK_ITEM###-->
+	</div>
+</div>
+<!-- ###TEMPLATE_SINGLE### end -->
+
+					
+					
+					</div>
+				</div>
+			</div>
+			
+			<div id="footer">
+				footer
+			</div>
+
+			
+		</div> <!-- /wrap -->
+		
+		<!--[if lte IE 6]>
+			<script src="../main/scripts/ie6_cssFix.js" type="text/javascript"></script>
+		<![endif]-->
+		
+	</body>
+	
+</html>
+
+
+

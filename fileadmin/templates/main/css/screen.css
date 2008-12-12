@@ -1,0 +1,17 @@
+/* -----------------------------------------------------------------------------------------------------------------
+	screen.css - costum changes; load after common.css
+----------------------------------------------------------------------------------------------------------------- */
+	/* reset p, div for RTE */
+	p,div { padding: 0; margin: 0; }
+	
+	.px210x750 > .col1  { width: 209px; border-right: 1px solid #dcdcdc; }
+	.px210x750 > .col2  {	width: 750px;	}
+	
+	#header, #footer { background: #eee; text-align: center; border-bottom: 1 solid #aaa; margin: 5px 0; padding: 8px; }
+	#footer  { border-width: 0 0 1px 0; }
+	
+	.px210x750 ul { padding-left: 7px; margin-left: 7px; }
+	
+	.breadcrum { border-bottom: 1px solid #dcdcdc; padding: 1px 0 3px 10px; font-size: 11px; color: #aaa; margin-bottom: 5px; }
+		.breadcrum a { color: #aaa; text-decoration: none; }
+		.breadcrum a:hover { color: #000; text-decoration: underline; }

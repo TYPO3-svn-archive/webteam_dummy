@@ -1,0 +1,25 @@
+/* -----------------------------------------------------------------------------------------------------------------
+	tt_news.css - tt_news layout; load after screen.css
+----------------------------------------------------------------------------------------------------------------- */
+
+	.news-latest-item { border: 1px solid #dcdcdc; margin-bottom: 10px; }
+		.news-latest-item h3 { margin: 5px 0 10px 5px; padding: 0; }
+			.news-latest-item h3 a { color: inherit; text-decoration: none; }
+		.news-latest-item img { float: left; margin: 0 10px 5px 5px; }
+		
+		.news-latest-date { float: right; margin: 5px 5px 0 0; }
+		.news-latest-morelink { text-align: right; margin-right: 10px; }
+		.news-latest-text { margin: 0 5px 5px 5px; }
+		.news-latest-gotoarchive { display: none; } /* don't use an archive */
+
+		
+		
+	.news-single-item { border: 1px solid #dcdcdc; }
+		.news-single-item h2 { margin: 5px; padding: 0; }
+		.news-single-item img { float: left; margin: 0 10px 5px 5px; }
+		
+		.news-single-timedata { float: right; margin: 5px 5px 0 0; }
+		.news-single-author { float: right; margin: 5px 5px 0 0; }
+		.news-single-text { margin: 0 5px 5px 5px; }
+		.news-single-backlink { margin: 5px; }
+	
