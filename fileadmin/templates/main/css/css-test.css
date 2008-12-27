@@ -1,7 +1,0 @@
-	#contentMain .col1 { background: #aaa; border-right: 1px solid #000; }
-	#contentMain .col2 { background: #ccc; }
-	#contentMain .col3 { background: #ddd; }
-	#contentMain .col4 { background: #999; }
-	
-	#contentMain .colmask { padding-top: 10px; margin-top: 10px; border-top: 1px solid #000; }
-		#contentMain > div:first-child { border: none; margin-top: 0; padding-top: 0; }

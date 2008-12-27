@@ -53,6 +53,9 @@
 	/* set the default margin for the content div */
 	#contentMain { margin: 0 10px; }
 	
+	#contentMain .colmask { padding-top: 10px; margin-top: 10px; border-top: 1px solid #000; }
+		#contentMain > div:first-child { border: none; margin-top: 0; padding-top: 0; }
+	
 	.col1 > .content { margin: 0 5px 0 0; }
 	.col2 > .content { margin: 0 0 0 5px; }
 	

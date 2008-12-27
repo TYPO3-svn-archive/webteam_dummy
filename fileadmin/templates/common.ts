@@ -20,10 +20,11 @@ config {
 # creates default Page Type rendered with templavoila
 page = PAGE
 page.typeNum = 0
-# the following 3 lines are needed to disable Explosive Preview
-plugin.tx_templavoila_pi1.disableExplosivePreview = 1
-page.10 < plugin.tx_templavoila_pi1
+page.10 = USER
 page.10.userFunc = tx_templavoila_pi1->main_page
+
+# set the Wrap if you use the "webteam_dummy" layout
+lib.contentWrap = <div class="content contentMain" id="contentMain"><!--TYPO3SEARCH_begin--> | <!--TYPO3SEARCH_end--></div>
 
 ################################################ XHTML / LOG #######################################################
 # sets default config for nice xhtml
@@ -88,6 +89,22 @@ menus.nested_ul {
 		ACT < .NO
 		ACT = 1
 		ACT.ATagParams = class="act"
+		
+		CUR < .NO
+		CUR = 1
+		CUR.ATagParams = class="cur"
+		
+		IFSUB < .NO
+		IFSUB = 1
+		IFSUB.ATagParams.wrap = class="ifsub"
+		
+		ACTIFSUB < .NO
+		ACTIFSUB = 1
+		ACTIFSUB.ATagParams.wrap = class="act ifsub"
+		
+		CURIFSUB < .NO
+		CURIFSUB = 1
+		CURIFSUB.ATagParams.wrap = class="cur ifsub"		
 	}
 	
 	2 < .1
@@ -99,7 +116,8 @@ menus.nested_ul {
 menus.footer = HMENU
 menus.footer {
 	special = directory
-	special.value = 129
+	# set to the footer page
+	# special.value = 129
 	1 = TMENU
 	1 {
 		noBlur = 1
@@ -120,6 +138,10 @@ menus.breadcrum {
 		NO.allWrap = | &thinsp; &gt; &thinsp; |*||*| |
 		NO.stdWrap.htmlSpecialChars = 1
 		NO.stdWrap.crop = 40 | ... | 1
+
+		CUR < .NO
+		CUR = 1
+		CUR.ATagParams = class="cur"		
 	}
 }
 
@@ -134,7 +156,18 @@ tt_content.stdWrap.dataWrap >
 # lib.parseFunc_RTE.externalBlocks.ol.stdWrap.parseFunc.makelinks = 0
 
 # DEFINE DEFAULT HEADER
-lib.stdheader.10.1.fontTag = <h2>|</h2>
+# lib.stdheader.10.1.fontTag = <h2>|</h2>
 
 # NO csc-header
 lib.stdheader.stdWrap.dataWrap >
+
+# We want absolute no target attribute as it is not XHTML-strict
+# compliant and I really don't like new windows (_blank target) !
+lib.parseFunc.tags.link.typolink.target >
+PAGE_TARGET =
+styles.content.links.extTarget =
+styles.content.links.target =
+content.pageFrameObj =
+styles.content.mailform.target =
+styles.content.searchresult.resultTarget =
+styles.content.searchresult.target =

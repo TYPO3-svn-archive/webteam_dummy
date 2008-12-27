@@ -24,7 +24,7 @@
 /**
  * Contains HTML markup class
  *
- * $Id: class.tx_templavoila_htmlmarkup.php 11100 2008-08-13 12:53:15Z dmitry $
+ * $Id: class.tx_templavoila_htmlmarkup.php 14870 2008-12-12 19:51:46Z dmitry $
  *
  * @author	Kasper Skaarhoj <kasper@typo3.com>
  */
@@ -83,9 +83,9 @@ require_once(PATH_t3lib.'class.t3lib_parsehtml.php');
  * @package TYPO3
  * @subpackage tx_templavoila
  */
- class tx_templavoila_htmlmarkup {
+class tx_templavoila_htmlmarkup {
 
- 		// CONFIG:
+		// CONFIG:
 	/**
 	 * Determines which mode is used for markup. Options are:
 	 * 	'explode' : In this mode A) container elementers (tables, tablecells...) are marked with borders and B) all the tag-images inserted are inserted 'relative' to the content which means no tag images can be layered over each other. Best mode if you want access to all elements (analytic) BUT it also spoils the page design the most of the options.
@@ -480,9 +480,9 @@ require_once(PATH_t3lib.'class.t3lib_parsehtml.php');
 					if (is_array($currentMappingInfo['sub'][$key]))	{
 						$currentMappingInfo['cArray'][$key]=$this->mergeSampleDataIntoTemplateStructure($dataStruct[$key]['el'],$currentMappingInfo['sub'][$key],'',
 							($dataStruct[$key]['section'] ?
-							 	(is_array($dataStruct[$key]['tx_templavoila']['sample_order']) ? $dataStruct[$key]['tx_templavoila']['sample_order'] : array_keys($dataStruct[$key]['el'])) :
-							 	'')
-							 );
+								(is_array($dataStruct[$key]['tx_templavoila']['sample_order']) ? $dataStruct[$key]['tx_templavoila']['sample_order'] : array_keys($dataStruct[$key]['el'])) :
+								'')
+							);
 					}
 				} else {
 					if (is_array($dataStruct[$key]['tx_templavoila']['sample_data']))	{
@@ -756,6 +756,7 @@ require_once(PATH_t3lib.'class.t3lib_parsehtml.php');
 	function setHeaderBodyParts($MappingInfo_head,$MappingData_head_cached,$BodyTag_cached='')	{
 
 		$htmlParse = ($this->htmlParse ? $this->htmlParse : t3lib_div::makeInstance('t3lib_parsehtml'));
+		/* @var $htmlParse t3lib_parsehtml */
 
 			// Traversing mapped header parts:
 		if (is_array($MappingInfo_head['headElementPaths'])) {
@@ -937,7 +938,29 @@ require_once(PATH_t3lib.'class.t3lib_parsehtml.php');
 
 						// Split content by the solo tags
 					$soloParts = $this->htmlParse->splitTags($tagsSolo,$v);
-
+					
+					for ($key = 0; $key < count($soloParts); $key++) {
+						$value = $soloParts[$key];
+						//check for downlevel-hidden and downlevel-revealed syntax, see http://msdn.microsoft.com/de-de/library/ms537512(en-us,VS.85).aspx
+						if (substr(trim($value), 0, 7) == '<!--[if' || substr(trim($value), 0, 5) == '<![if') {
+							$soloParts[$key+1] = trim( $soloParts[$key] ) . ' ' . $soloParts[$key+1];
+							$soloParts[$key] = '';
+							$key += 1;
+						} elseif (substr(trim($value), 0, 12) == '<![endif]-->' || substr(trim($value), 0, 10) == '<![endif]>') {
+							/* it won't split 2 CC right after another, so we need to do it manually */
+							if ( strpos(trim($value), '<!--[if') || strpos(trim($value), '<![if') ) {
+								$tmp = preg_split("/\r\n\s*/", trim($value), -1);
+								$soloParts[$key-1] .= ' ' . $tmp[0];
+								$soloParts[$key+1] = $tmp[1] . ' ' . $soloParts[$key+1];
+								$soloParts[$key] = '';
+								$key += 1;
+							} else {
+								$soloParts[$key-1] .= ' ' . trim( $soloParts[$key] );
+								$soloParts[$key] = '';
+							}
+						}
+					}
+					
 						// Traverse solo tags
 					foreach($soloParts as $kk => $vv)	{
 						if ($kk%2)	{
