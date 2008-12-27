@@ -15,3 +15,6 @@
 	.breadcrum { border-bottom: 1px solid #dcdcdc; padding: 1px 0 3px 10px; font-size: 11px; color: #aaa; margin-bottom: 5px; }
 		.breadcrum a { color: #aaa; text-decoration: none; }
 		.breadcrum a:hover { color: #000; text-decoration: underline; }
+	
+	#contentMain .colmask { padding-top: 10px; margin-top: 10px; border-top: 1px solid #000; }
+	#contentMain > div:first-child { border: none; margin-top: 0; padding-top: 0; }
