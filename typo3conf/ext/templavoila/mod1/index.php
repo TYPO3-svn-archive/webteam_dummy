@@ -386,7 +386,7 @@ class tx_templavoila_module1 extends t3lib_SCbase {
 				//Prototype /Scriptaculous
 			$this->doc->JScode .= '<script src="' . $this->doc->backPath . 'contrib/prototype/prototype.js" type="text/javascript"></script>';
 			$this->doc->JScode .= '<script src="' . $this->doc->backPath . 'contrib/scriptaculous/scriptaculous.js?load=effects,dragdrop" type="text/javascript"></script>';
-			$this->doc->JScode .= '<script src="' . 'dragdrop-min.js' . '" type="text/javascript"></script>';
+			$this->doc->JScode .= '<script src="' . t3lib_div::locationHeaderUrl('dragdrop-min.js') . '" type="text/javascript"></script>';
 
 				// Set up JS for dynamic tab menu and side bar
 			$this->doc->JScode .= $this->doc->getDynTabMenuJScode();
