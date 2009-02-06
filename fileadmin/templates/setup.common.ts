@@ -1,6 +1,6 @@
 #################################################### Common ########################################################
 # disable cache if any typo3 user is logged in
-[globalVar = TSFE : beUserLogin > 0]
+[globalVar = TSFE:beUserLogin > 0]
 	config.no_cache = 1
 [global]
 

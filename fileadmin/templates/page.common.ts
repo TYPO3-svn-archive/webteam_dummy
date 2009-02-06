@@ -1,8 +1,10 @@
 # define default Language Label and Flag
-# english
 mod.SHARED {
+
 	defaultLanguageLabel = German
-	defaultLanguageFlag = de.gif
+	
+	defaultLanguageFlag = at.gif
+	
 }
 
 # Pages will NOT have "(copy)" appended:

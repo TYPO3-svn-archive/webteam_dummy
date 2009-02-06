@@ -1,4 +1,7 @@
 ################################################# NEWS #############################################################
+# load default config
+<INCLUDE_TYPOSCRIPT: source="FILE: typo3conf/ext/tt_news/pi/static/ts_new/setup.txt">
+
 # Clear the code field
 plugin.tt_news.code >
 plugin.tt_news.code = LATEST
